@@ -6,7 +6,7 @@ using Controller = UnityEngine.CharacterController;
 
 namespace _Scripts.Character.Implementation {
     [RequireComponent(typeof(Controller))]
-    public class CharacterController : MonoBehaviour {
+    public class CharacterController : MonoBehaviour, ICharacterAnimationParameters {
         private const float G = -9.81f;
 
         [Serializable]
@@ -24,6 +24,9 @@ namespace _Scripts.Character.Implementation {
         private ICharacterInput _input;
         private float _cinemachineTargetYaw = 0;
         private float _cinemachineTargetPitch = 0;
+
+        public bool IsSprinting => _input.IsSprinting;
+        public float Speed => _controller.velocity.magnitude;
 
         [Inject]
         public void Init(ICharacterInput input) {
