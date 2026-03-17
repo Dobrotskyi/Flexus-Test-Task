@@ -12,6 +12,7 @@ namespace _Scripts.Character.Implementation {
         [Serializable]
         public struct Characteristics {
             public float MaxSpeed;
+            public float MaxSprintSpeed;
             public float CameraSensitivity;
             public float BottomCameraAngle;
             public float TopCameraAngle;
@@ -35,6 +36,8 @@ namespace _Scripts.Character.Implementation {
 
         private void Update() {
             HandleMovement();
+            if (Application.isFocused && Cursor.lockState != CursorLockMode.Locked)
+                Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void LateUpdate() {
@@ -42,7 +45,7 @@ namespace _Scripts.Character.Implementation {
         }
 
         private void HandleMovement() {
-            float targetSpeed = _characteristics.MaxSpeed;
+            float targetSpeed = _input.IsSprinting ? _characteristics.MaxSprintSpeed : _characteristics.MaxSpeed;
             if (_input.Move == Vector2.zero)
                 targetSpeed = 0;
             else

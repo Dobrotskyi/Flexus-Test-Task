@@ -9,9 +9,12 @@ namespace _Scripts.Character.Implementation {
 
         public Vector2 Move => _input.Character.Move.ReadValue<Vector2>();
         public Vector2 Look => _input.Character.Look.ReadValue<Vector2>();
+        public bool IsSprinting => _input.Character.Sprint.IsPressed();
         public ICharacterInput Input => this;
 
         public void Init() {
+            if (_input != null)
+                throw new System.Exception($"{nameof(CharacterInput)} was already initialized");
             _input = new CharacterInputActions();
         }
 
