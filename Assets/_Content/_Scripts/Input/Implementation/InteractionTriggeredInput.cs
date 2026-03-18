@@ -25,8 +25,10 @@ namespace _Scripts.Input.Implementation {
 
         private void OnTriggered(InputAction.CallbackContext ctx) {
             float input = ctx.ReadValue<float>();
+            Debug.Log("Trigger input" + input);
             if (input == 0)
                 return;
+            Debug.Log(input);
             _triggered.OnNext(input > 0);
         }
 

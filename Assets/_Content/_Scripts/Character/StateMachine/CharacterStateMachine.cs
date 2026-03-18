@@ -8,6 +8,7 @@ namespace _Scripts.Character.StateMachine {
     public class CharacterStateMachine : MonoBehaviour {
         [SerializeReference, SubclassSelector] private State _defaultState;
 
+        [field: SerializeField] public GameObject PlayerGO { private set; get; }
         public ICharacterInputController CharacterInput { private set; get; }
         public IVehicleInputController VehicleInput { private set; get; }
         public IInteractionTriggerController InteractionInput { private set; get; }
@@ -31,6 +32,8 @@ namespace _Scripts.Character.StateMachine {
             if (_currentState is IEnterState enter)
                 enter.Enter();
         }
+
+        public void TransitionToDefault() => TransitionTo(_defaultState);
 
         private void Awake() {
             TransitionTo(_defaultState);

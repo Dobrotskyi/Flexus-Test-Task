@@ -21,8 +21,6 @@ namespace _Scripts.Character.InteractionSystem {
         }
 
         public void ReceiveInput(bool startInteraction) {
-            if (!gameObject.activeInHierarchy)
-                return;
             if (startInteraction)
                 StartInteraction();
             else

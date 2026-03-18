@@ -14,10 +14,15 @@ namespace _Scripts.CarControllerSystem {
         [SerializeField] private Transform _centerOfMass;
         private IVehicleInput _input;
         private Rigidbody _rb;
+        private bool _onHandbrake;
 
         [Inject]
         public void Init(IVehicleInput input) {
             _input = input;
+        }
+
+        public void SetHandbrakeInput(bool handbrake) {
+            _onHandbrake = handbrake;
         }
 
         private void Awake() {
@@ -32,7 +37,7 @@ namespace _Scripts.CarControllerSystem {
         private void WheelsLogic() {
             foreach (var wheel in _wheels) {
                 if (wheel.CanBrake)
-                    wheel.ApplyBrakeTorque(_input.Brake.Value * _breakForce);
+                    wheel.ApplyBrakeTorque((_onHandbrake ? 1 : _input.Brake.Value) * _breakForce);
                 if (wheel.CanPower)
                     wheel.ApplyMotorTorque(_input.TorqueDirection * _acceleration);
                 if (wheel.CanSteer)

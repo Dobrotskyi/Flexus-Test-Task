@@ -17,7 +17,6 @@ namespace _Scripts.Character.StateMachine.States.Implementation {
 
         public void Exit() {
             Player.CharacterInput.Disable();
-            Player.InteractionInput.Disable();
             _cmCamera.gameObject.SetActive(false);
         }
     }
