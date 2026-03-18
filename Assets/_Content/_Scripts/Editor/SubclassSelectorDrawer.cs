@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using _Scripts.Attributes;
 using UnityEditor;
 using UnityEngine;
@@ -56,7 +57,10 @@ namespace _Scripts.Editor {
             if (_types.Count > 1) {
                 int newIndex = EditorGUI.Popup(dropdownRect, currentIndex, _typeNames);
                 if (newIndex != currentIndex && newIndex >= 0) {
-                    property.managedReferenceValue = Activator.CreateInstance(_types[newIndex]);
+                    if (_types[newIndex].GetConstructor(Type.EmptyTypes) == null)
+                        property.managedReferenceValue = FormatterServices.GetUninitializedObject(_types[newIndex]);
+                    else
+                        property.managedReferenceValue = Activator.CreateInstance(_types[newIndex]);
                     property.serializedObject.ApplyModifiedProperties();
                 }
             }

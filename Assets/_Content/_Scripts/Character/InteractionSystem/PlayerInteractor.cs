@@ -1,4 +1,5 @@
 ﻿using _Scripts.Character.InteractionSystem.Abstracts;
+using _Scripts.Character.StateMachine;
 using _Scripts.Input.Abstracts;
 using R3;
 using UnityEngine;
@@ -7,15 +8,16 @@ using Zenject;
 namespace _Scripts.Character.InteractionSystem {
     public class PlayerInteractor : MonoBehaviour {
         [SerializeField] private InteractionFinder _finder = new();
-        [SerializeField] private GameObject _player;
-        private bool _ignoreEvent;
+        private CharacterStateMachine _player;
         private IInteraction _selectedInteraction;
+        private bool _ignoreEvent;
 
         public ReadOnlyReactiveProperty<IInteractable> FoundInteractable => _finder.FoundInteractable;
 
         [Inject]
-        private void Construct(IInteractionTrigger interactionTrigger) {
+        private void Construct(IInteractionTrigger interactionTrigger, CharacterStateMachine player) {
             interactionTrigger.Triggered.Subscribe(ReceiveInput).AddTo(this);
+            _player = player;
         }
 
         public void ReceiveInput(bool startInteraction) {

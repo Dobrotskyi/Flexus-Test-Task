@@ -1,4 +1,5 @@
-﻿using R3;
+﻿using _Scripts.Character.StateMachine;
+using R3;
 using UnityEngine;
 
 namespace _Scripts.Character.InteractionSystem.Abstracts {
@@ -14,7 +15,7 @@ namespace _Scripts.Character.InteractionSystem.Abstracts {
         public bool Enabled { get; set; }
         public Result Available { get; }
 
-        public void Perform(GameObject player);
-        public Result Stop(GameObject player);
+        public void Perform(CharacterStateMachine player);
+        public Result Stop(CharacterStateMachine player);
     }
 }

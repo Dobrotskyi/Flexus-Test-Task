@@ -17,11 +17,8 @@ namespace _Scripts.Input.Installer {
             _actions = new CharacterInputActions();
 
             _input.Init(_actions.Character);
-            _input.Enable();
             _vehicleInput.Init(_actions.Vehicle);
-            _vehicleInput.Enable();
             _interactionInput.Init(_actions.Interaction);
-            _interactionInput.Enable();
             Container.Bind<ICharacterInput>().FromInstance(_input).AsSingle();
             Container.Bind<ICharacterInputController>().FromInstance(_input);
             Container.Bind<IVehicleInput>().FromInstance(_vehicleInput);
