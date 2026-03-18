@@ -3,18 +3,17 @@ using UnityEngine;
 
 namespace _Scripts.Input.Implementation {
     public class CharacterInput : MonoBehaviour, ICharacterInput, ICharacterInputController {
-        private CharacterInputActions _input;
+        private CharacterInputActions.CharacterActions _input;
         private bool _disposed;
 
-        public Vector2 Move => _input.Character.Move.ReadValue<Vector2>();
-        public Vector2 Look => _input.Character.Look.ReadValue<Vector2>();
-        public bool IsSprinting => _input.Character.Sprint.IsPressed();
+        public Vector2 Move => _input.Move.ReadValue<Vector2>();
+        public Vector2 Look => _input.Look.ReadValue<Vector2>();
+        public bool IsSprinting => _input.Sprint.IsPressed();
         public ICharacterInput Input => this;
+        public CharacterInputActions.CharacterActions Actions => _input;
 
-        public void Init() {
-            if (_input != null)
-                throw new System.Exception($"{nameof(CharacterInput)} was already initialized");
-            _input = new CharacterInputActions();
+        public void Init(CharacterInputActions.CharacterActions input) {
+            _input = input;
         }
 
         public void Enable() {
@@ -28,8 +27,7 @@ namespace _Scripts.Input.Implementation {
         public void Dispose() {
             if (_disposed)
                 return;
-            _input?.Disable();
-            _input?.Dispose();
+            _input.Disable();
             _disposed = true;
         }
 

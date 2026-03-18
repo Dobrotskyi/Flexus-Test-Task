@@ -328,9 +328,9 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Bias: 0.2
+    m_NormalBias: 0
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Version: 3
-  m_UsePipelineSettings: 1
+  m_UsePipelineSettings: 0
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
   m_RenderingLayers: 1
@@ -1476,6 +1476,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3527241255804448117, guid: d4f55c9f34cdb8a488a792fbf3127555, type: 3}
+      propertyPath: _model
+      value: 
+      objectReference: {fileID: 7737533435088767533}
+    - target: {fileID: 4247996149698217786, guid: d4f55c9f34cdb8a488a792fbf3127555, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.404
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247996149698217786, guid: d4f55c9f34cdb8a488a792fbf3127555, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.438
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485817087467548537, guid: d4f55c9f34cdb8a488a792fbf3127555, type: 3}
+      propertyPath: _model
+      value: 
+      objectReference: {fileID: 7624210830160452790}
+    - target: {fileID: 6042741685534696813, guid: d4f55c9f34cdb8a488a792fbf3127555, type: 3}
+      propertyPath: _model
+      value: 
+      objectReference: {fileID: 6503481206802506408}
+    - target: {fileID: 7221051928993559406, guid: d4f55c9f34cdb8a488a792fbf3127555, type: 3}
+      propertyPath: _acceleration
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864642728399784968, guid: d4f55c9f34cdb8a488a792fbf3127555, type: 3}
+      propertyPath: _model
+      value: 
+      objectReference: {fileID: 7138730609491545435}
     - target: {fileID: 8569886140497193504, guid: d4f55c9f34cdb8a488a792fbf3127555, type: 3}
       propertyPath: m_Name
       value: Vehicle

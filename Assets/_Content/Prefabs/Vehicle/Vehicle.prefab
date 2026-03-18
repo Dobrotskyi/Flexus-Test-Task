@@ -35,6 +35,37 @@ Transform:
   - {fileID: 4812118899192986291}
   m_Father: {fileID: 3182530430975022475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1907327481679818151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4247996149698217786}
+  m_Layer: 0
+  m_Name: CenterOfMass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4247996149698217786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907327481679818151}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3182530430975022475}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3862179380525427414
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +128,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4247996149698217786}
   - {fileID: 7757635324176394122}
   - {fileID: 8178491035417162547}
   m_Father: {fileID: 0}
@@ -145,7 +177,12 @@ MonoBehaviour:
   - {fileID: 7864642728399784968}
   - {fileID: 5485817087467548537}
   - {fileID: 6042741685534696813}
-  _acceleration: 10
+  _acceleration: 100
+  _breakForce: 4000
+  _maxSteerAngle: 35
+  _steerSensitivity: 1
+  _steerSnapping: 0.5
+  _centerOfMass: {fileID: 4247996149698217786}
 --- !u!1001 &944541681985736910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,6 +230,10 @@ PrefabInstance:
     - target: {fileID: 5752146772337633917, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829583678854854051, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
+      propertyPath: <CanBrake>k__BackingField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6829583678854854051, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
       propertyPath: <CanPower>k__BackingField
@@ -272,6 +313,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6829583678854854051, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
+      propertyPath: <CanBrake>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829583678854854051, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
       propertyPath: <CanPower>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -348,6 +393,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6829583678854854051, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
+      propertyPath: <CanBrake>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829583678854854051, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
+      propertyPath: <CanSteer>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8118041148253706433, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
       propertyPath: m_Name
       value: FR_Wheel
@@ -420,6 +473,14 @@ PrefabInstance:
     - target: {fileID: 5752146772337633917, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829583678854854051, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
+      propertyPath: <CanBrake>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829583678854854051, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
+      propertyPath: <CanSteer>k__BackingField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8118041148253706433, guid: a15dd01b98a60eb42bd6a368531b49e7, type: 3}
       propertyPath: m_Name

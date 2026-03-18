@@ -350,6 +350,118 @@ namespace _Scripts.Input
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Vehicle"",
+            ""id"": ""116ea7be-26a1-47d7-b970-47d5512047cd"",
+            ""actions"": [
+                {
+                    ""name"": ""TorqueDirection"",
+                    ""type"": ""Value"",
+                    ""id"": ""16700bce-12a6-4517-874d-c7f2247aaad1"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Brake"",
+                    ""type"": ""Value"",
+                    ""id"": ""735065bc-7922-4098-8403-f157133d79e9"",
+                    ""expectedControlType"": ""Double"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Steering"",
+                    ""type"": ""Value"",
+                    ""id"": ""733a78ad-2e0e-4e2a-9024-d786e2e7ea30"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""fb83f5e3-861d-4db8-b852-cc8c21936ec5"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TorqueDirection"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""678722d7-9408-4213-b94e-8f4f5a26cde8"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TorqueDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8daf8fe1-8d61-4ef8-b69d-5fccde6526b1"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TorqueDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bbc4677a-8c45-4b45-892c-bba86bab997c"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""5e83ed1f-8617-426d-b634-faf85d53e993"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steering"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""37ec2c1f-4ef8-4ec0-9534-5f14d5e57242"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steering"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""e85c75d9-37e9-43e6-8047-ff6a1ae332aa"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steering"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -362,12 +474,18 @@ namespace _Scripts.Input
             // Interaction
             m_Interaction = asset.FindActionMap("Interaction", throwIfNotFound: true);
             m_Interaction_Trigger = m_Interaction.FindAction("Trigger", throwIfNotFound: true);
+            // Vehicle
+            m_Vehicle = asset.FindActionMap("Vehicle", throwIfNotFound: true);
+            m_Vehicle_TorqueDirection = m_Vehicle.FindAction("TorqueDirection", throwIfNotFound: true);
+            m_Vehicle_Brake = m_Vehicle.FindAction("Brake", throwIfNotFound: true);
+            m_Vehicle_Steering = m_Vehicle.FindAction("Steering", throwIfNotFound: true);
         }
 
         ~@CharacterInputActions()
         {
             UnityEngine.Debug.Assert(!m_Character.enabled, "This will cause a leak and performance issues, CharacterInputActions.Character.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_Interaction.enabled, "This will cause a leak and performance issues, CharacterInputActions.Interaction.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Vehicle.enabled, "This will cause a leak and performance issues, CharacterInputActions.Vehicle.Disable() has not been called.");
         }
 
         /// <summary>
@@ -653,6 +771,124 @@ namespace _Scripts.Input
         /// Provides a new <see cref="InteractionActions" /> instance referencing this action map.
         /// </summary>
         public InteractionActions @Interaction => new InteractionActions(this);
+
+        // Vehicle
+        private readonly InputActionMap m_Vehicle;
+        private List<IVehicleActions> m_VehicleActionsCallbackInterfaces = new List<IVehicleActions>();
+        private readonly InputAction m_Vehicle_TorqueDirection;
+        private readonly InputAction m_Vehicle_Brake;
+        private readonly InputAction m_Vehicle_Steering;
+        /// <summary>
+        /// Provides access to input actions defined in input action map "Vehicle".
+        /// </summary>
+        public struct VehicleActions
+        {
+            private @CharacterInputActions m_Wrapper;
+
+            /// <summary>
+            /// Construct a new instance of the input action map wrapper class.
+            /// </summary>
+            public VehicleActions(@CharacterInputActions wrapper) { m_Wrapper = wrapper; }
+            /// <summary>
+            /// Provides access to the underlying input action "Vehicle/TorqueDirection".
+            /// </summary>
+            public InputAction @TorqueDirection => m_Wrapper.m_Vehicle_TorqueDirection;
+            /// <summary>
+            /// Provides access to the underlying input action "Vehicle/Brake".
+            /// </summary>
+            public InputAction @Brake => m_Wrapper.m_Vehicle_Brake;
+            /// <summary>
+            /// Provides access to the underlying input action "Vehicle/Steering".
+            /// </summary>
+            public InputAction @Steering => m_Wrapper.m_Vehicle_Steering;
+            /// <summary>
+            /// Provides access to the underlying input action map instance.
+            /// </summary>
+            public InputActionMap Get() { return m_Wrapper.m_Vehicle; }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+            public void Enable() { Get().Enable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+            public void Disable() { Get().Disable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+            public bool enabled => Get().enabled;
+            /// <summary>
+            /// Implicitly converts an <see ref="VehicleActions" /> to an <see ref="InputActionMap" /> instance.
+            /// </summary>
+            public static implicit operator InputActionMap(VehicleActions set) { return set.Get(); }
+            /// <summary>
+            /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <param name="instance">Callback instance.</param>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+            /// </remarks>
+            /// <seealso cref="VehicleActions" />
+            public void AddCallbacks(IVehicleActions instance)
+            {
+                if (instance == null || m_Wrapper.m_VehicleActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_VehicleActionsCallbackInterfaces.Add(instance);
+                @TorqueDirection.started += instance.OnTorqueDirection;
+                @TorqueDirection.performed += instance.OnTorqueDirection;
+                @TorqueDirection.canceled += instance.OnTorqueDirection;
+                @Brake.started += instance.OnBrake;
+                @Brake.performed += instance.OnBrake;
+                @Brake.canceled += instance.OnBrake;
+                @Steering.started += instance.OnSteering;
+                @Steering.performed += instance.OnSteering;
+                @Steering.canceled += instance.OnSteering;
+            }
+
+            /// <summary>
+            /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <remarks>
+            /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+            /// </remarks>
+            /// <seealso cref="VehicleActions" />
+            private void UnregisterCallbacks(IVehicleActions instance)
+            {
+                @TorqueDirection.started -= instance.OnTorqueDirection;
+                @TorqueDirection.performed -= instance.OnTorqueDirection;
+                @TorqueDirection.canceled -= instance.OnTorqueDirection;
+                @Brake.started -= instance.OnBrake;
+                @Brake.performed -= instance.OnBrake;
+                @Brake.canceled -= instance.OnBrake;
+                @Steering.started -= instance.OnSteering;
+                @Steering.performed -= instance.OnSteering;
+                @Steering.canceled -= instance.OnSteering;
+            }
+
+            /// <summary>
+            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="VehicleActions.UnregisterCallbacks(IVehicleActions)" />.
+            /// </summary>
+            /// <seealso cref="VehicleActions.UnregisterCallbacks(IVehicleActions)" />
+            public void RemoveCallbacks(IVehicleActions instance)
+            {
+                if (m_Wrapper.m_VehicleActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            /// <summary>
+            /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+            /// </summary>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+            /// </remarks>
+            /// <seealso cref="VehicleActions.AddCallbacks(IVehicleActions)" />
+            /// <seealso cref="VehicleActions.RemoveCallbacks(IVehicleActions)" />
+            /// <seealso cref="VehicleActions.UnregisterCallbacks(IVehicleActions)" />
+            public void SetCallbacks(IVehicleActions instance)
+            {
+                foreach (var item in m_Wrapper.m_VehicleActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_VehicleActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        /// <summary>
+        /// Provides a new <see cref="VehicleActions" /> instance referencing this action map.
+        /// </summary>
+        public VehicleActions @Vehicle => new VehicleActions(this);
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Character" which allows adding and removing callbacks.
         /// </summary>
@@ -696,6 +932,35 @@ namespace _Scripts.Input
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnTrigger(InputAction.CallbackContext context);
+        }
+        /// <summary>
+        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Vehicle" which allows adding and removing callbacks.
+        /// </summary>
+        /// <seealso cref="VehicleActions.AddCallbacks(IVehicleActions)" />
+        /// <seealso cref="VehicleActions.RemoveCallbacks(IVehicleActions)" />
+        public interface IVehicleActions
+        {
+            /// <summary>
+            /// Method invoked when associated input action "TorqueDirection" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnTorqueDirection(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Brake" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnBrake(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Steering" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnSteering(InputAction.CallbackContext context);
         }
     }
 }

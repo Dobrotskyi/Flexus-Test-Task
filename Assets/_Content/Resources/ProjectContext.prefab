@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 1503364529946559091}
   - component: {fileID: 8266294841881054743}
   - component: {fileID: 6262159368421656817}
+  - component: {fileID: 1466325862201462271}
   m_Layer: 0
   m_Name: CharacterInput_Installer
   m_TagString: Untagged
@@ -108,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 6262159368421656817}
+  _vehicleInput: {fileID: 1466325862201462271}
 --- !u!114 &6262159368421656817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,5 +120,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ee0c08c645b453b8702faa681e43e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1466325862201462271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9170833538905114243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b7953bed1649968f6a3a5dd7732f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

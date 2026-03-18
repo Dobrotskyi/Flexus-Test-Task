@@ -2,8 +2,8 @@
 
 namespace _Scripts.Input.Abstracts {
     public interface IVehicleInput {
-        public ClampedFloat Throttle { get; }
-        public ClampedFloat Brake { get; }
-        public ClampedFloat Steering { get; }
+        public float TorqueDirection { get; }
+        public Float0To1 Brake { get; }
+        public float Steering { get; }
     }
 }
