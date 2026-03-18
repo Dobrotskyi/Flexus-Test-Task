@@ -274,14 +274,14 @@ MonoBehaviour:
   IgnoreTimeScale: 0
   WorldUpOverride: {fileID: 0}
   ChannelMask: -1
-  UpdateMethod: 2
+  UpdateMethod: 1
   BlendUpdateMethod: 1
   LensModeOverride:
     Enabled: 0
     DefaultMode: 2
   DefaultBlend:
-    Style: 3
-    Time: 0.3
+    Style: 5
+    Time: 1
     CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -621,7 +621,7 @@ MonoBehaviour:
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 1.68, z: 0}
-  Damping: {x: 0.5, y: 0.5}
+  Damping: {x: 0, y: 0}
   Lookahead:
     Enabled: 0
     Time: 0
@@ -639,9 +639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625c14eee3ad46c99df7c7c891ef668a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damping: {x: 0.1, y: 0.5, z: 0.3}
+  Damping: {x: 0, y: 0, z: 0}
   ShoulderOffset: {x: 0, y: 1.51, z: 0}
-  VerticalArmLength: 0.4
+  VerticalArmLength: -1.98
   CameraSide: 1
   CameraDistance: 5.4
   AvoidObstacles:
@@ -673,7 +673,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 2014218749}
+    TrackingTarget: {fileID: 9132859396169153158}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -1376,11 +1376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f22089a9663488ca2a4dbf6dc59433c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2014218749 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3182530430975022475, guid: d4f55c9f34cdb8a488a792fbf3127555, type: 3}
-  m_PrefabInstance: {fileID: 9132859396169153156}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2092101038 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6964343740137034015, guid: 1650ad253a83c4d4cbb2e9b9cc6d474f, type: 3}
@@ -1754,10 +1749,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3240777361704907174, guid: 1650ad253a83c4d4cbb2e9b9cc6d474f, type: 3}
-      propertyPath: _finder._camera
-      value: 
-      objectReference: {fileID: 330585545}
     - target: {fileID: 4694636791283030573, guid: 1650ad253a83c4d4cbb2e9b9cc6d474f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2185,6 +2176,11 @@ PrefabInstance:
 --- !u!4 &9132859396169153157 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7757635324176394122, guid: d4f55c9f34cdb8a488a792fbf3127555, type: 3}
+  m_PrefabInstance: {fileID: 9132859396169153156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9132859396169153158 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5884625544180395127, guid: d4f55c9f34cdb8a488a792fbf3127555, type: 3}
   m_PrefabInstance: {fileID: 9132859396169153156}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &268144427970964984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5884625544180395127}
+  m_Layer: 0
+  m_Name: CameraTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5884625544180395127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268144427970964984}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3182530430975022475}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1887581788413199195
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +195,7 @@ Transform:
   - {fileID: 8178491035417162547}
   - {fileID: 5599974144839357284}
   - {fileID: 2541660432750630117}
+  - {fileID: 5884625544180395127}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6706510673509857311
@@ -205,6 +237,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b965ce2a4f43fe9cc5f3c1502be3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraController:
+    _cameraSensitivity: 50
+    _bottomCameraAngle: -30
+    _topCameraAngle: 70
+    <CameraTarget>k__BackingField: {fileID: 5884625544180395127}
   _wheels:
   - {fileID: 3527241255804448117}
   - {fileID: 7864642728399784968}

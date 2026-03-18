@@ -21,6 +21,7 @@ namespace _Scripts.Input.Implementation {
 
         public float TorqueDirection => _input.TorqueDirection.ReadValue<float>();
         public float Steering => _input.Steering.ReadValue<float>();
+        public Vector2 Look => _input.Look.ReadValue<Vector2>();
 
         public void Init(CharacterInputActions.VehicleActions input) {
             _input = input;

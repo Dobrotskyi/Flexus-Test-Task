@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using _Scripts.Input.Abstracts;
+using _Scripts.Input.Implementation;
 using UnityEngine;
 using Zenject;
 
 namespace _Scripts.CarControllerSystem {
     public class Vehicle : MonoBehaviour {
+        [SerializeField] private CameraController _cameraController;
         [SerializeField] private List<Wheel> _wheels;
         [SerializeField] private float _acceleration = 10;
         [SerializeField] private float _breakForce = 20f;
@@ -30,8 +32,16 @@ namespace _Scripts.CarControllerSystem {
             _rb.centerOfMass = _centerOfMass.localPosition;
         }
 
+        private void Start() {
+            _cameraController.SetTargetYaw(_cameraController.CameraTarget.rotation.eulerAngles.y);
+        }
+
         private void FixedUpdate() {
             WheelsLogic();
+        }
+
+        private void LateUpdate() {
+            _cameraController.HandleCameraMovement(_input.Look);
         }
 
         private void WheelsLogic() {

@@ -1053,6 +1053,13 @@ MonoBehaviour:
     TopCameraAngle: 70
   _controller: {fileID: 512885491193714422}
   _cameraTarget: {fileID: 8533924272117720766}
+  _cameraController:
+    _cameraSensitivity: 50
+    _cinemachineTargetYaw: 0
+    _cinemachineTargetPitch: 0
+    _bottomCameraAngle: -30
+    _topCameraAngle: 70
+    <CameraTarget>k__BackingField: {fileID: 8533924272117720766}
 --- !u!114 &7126726611188623508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,8 +1091,6 @@ MonoBehaviour:
     _maxDistance: 2
     _checkingInterval: 0.1
     _origin: {fileID: 4694636791283030573}
-    _camera: {fileID: 0}
-  _player: {fileID: 6964343740137034015}
 --- !u!1 &7426482011943173219
 GameObject:
   m_ObjectHideFlags: 0

@@ -365,6 +365,15 @@ namespace _Scripts.Input
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""0ec081b6-1f3d-403b-909f-cbccd78dc607"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Brake"",
                     ""type"": ""Value"",
                     ""id"": ""735065bc-7922-4098-8403-f157133d79e9"",
@@ -416,6 +425,39 @@ namespace _Scripts.Input
                     ""action"": ""TorqueDirection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4eef0a1-79e6-45a5-b55b-7134baca7ea7"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48249e99-180c-41a2-8105-2d675b8ba2e1"",
+                    ""path"": ""<Pointer>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Touch"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""966849f4-3f26-4a54-9e20-5736773a55c2"",
+                    ""path"": ""<Joystick>/{Hatswitch}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -477,6 +519,7 @@ namespace _Scripts.Input
             // Vehicle
             m_Vehicle = asset.FindActionMap("Vehicle", throwIfNotFound: true);
             m_Vehicle_TorqueDirection = m_Vehicle.FindAction("TorqueDirection", throwIfNotFound: true);
+            m_Vehicle_Look = m_Vehicle.FindAction("Look", throwIfNotFound: true);
             m_Vehicle_Brake = m_Vehicle.FindAction("Brake", throwIfNotFound: true);
             m_Vehicle_Steering = m_Vehicle.FindAction("Steering", throwIfNotFound: true);
         }
@@ -776,6 +819,7 @@ namespace _Scripts.Input
         private readonly InputActionMap m_Vehicle;
         private List<IVehicleActions> m_VehicleActionsCallbackInterfaces = new List<IVehicleActions>();
         private readonly InputAction m_Vehicle_TorqueDirection;
+        private readonly InputAction m_Vehicle_Look;
         private readonly InputAction m_Vehicle_Brake;
         private readonly InputAction m_Vehicle_Steering;
         /// <summary>
@@ -793,6 +837,10 @@ namespace _Scripts.Input
             /// Provides access to the underlying input action "Vehicle/TorqueDirection".
             /// </summary>
             public InputAction @TorqueDirection => m_Wrapper.m_Vehicle_TorqueDirection;
+            /// <summary>
+            /// Provides access to the underlying input action "Vehicle/Look".
+            /// </summary>
+            public InputAction @Look => m_Wrapper.m_Vehicle_Look;
             /// <summary>
             /// Provides access to the underlying input action "Vehicle/Brake".
             /// </summary>
@@ -830,6 +878,9 @@ namespace _Scripts.Input
                 @TorqueDirection.started += instance.OnTorqueDirection;
                 @TorqueDirection.performed += instance.OnTorqueDirection;
                 @TorqueDirection.canceled += instance.OnTorqueDirection;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
                 @Brake.started += instance.OnBrake;
                 @Brake.performed += instance.OnBrake;
                 @Brake.canceled += instance.OnBrake;
@@ -850,6 +901,9 @@ namespace _Scripts.Input
                 @TorqueDirection.started -= instance.OnTorqueDirection;
                 @TorqueDirection.performed -= instance.OnTorqueDirection;
                 @TorqueDirection.canceled -= instance.OnTorqueDirection;
+                @Look.started -= instance.OnLook;
+                @Look.performed -= instance.OnLook;
+                @Look.canceled -= instance.OnLook;
                 @Brake.started -= instance.OnBrake;
                 @Brake.performed -= instance.OnBrake;
                 @Brake.canceled -= instance.OnBrake;
@@ -947,6 +1001,13 @@ namespace _Scripts.Input
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnTorqueDirection(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnLook(InputAction.CallbackContext context);
             /// <summary>
             /// Method invoked when associated input action "Brake" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
