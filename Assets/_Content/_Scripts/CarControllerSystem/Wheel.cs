@@ -22,6 +22,7 @@ namespace _Scripts.CarControllerSystem {
 
         public float SteerAngle => _collider.steerAngle;
         public bool IsSlipping { private set; get; }
+        public float SlippingStrength => _totalSlip - GROUND_SLIP;
 
         public void ApplyMotorTorque(float torque) {
             _collider.motorTorque = torque;

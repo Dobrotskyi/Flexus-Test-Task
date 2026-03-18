@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Scripts.CarControllerSystem {
+namespace _Scripts.CarControllerSystem.Sounds {
     public class VehicleSoundManager : MonoBehaviour {
         [SerializeField] private Vehicle _vehicle;
         [SerializeField] private AudioSource _audioSource;
