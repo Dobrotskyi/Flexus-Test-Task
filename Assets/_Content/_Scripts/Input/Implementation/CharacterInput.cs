@@ -1,8 +1,7 @@
-﻿using _Scripts.Character.Abstracts;
-using _Scripts.Character.Input;
+﻿using _Scripts.Input.Abstracts;
 using UnityEngine;
 
-namespace _Scripts.Character.Implementation {
+namespace _Scripts.Input.Implementation {
     public class CharacterInput : MonoBehaviour, ICharacterInput, ICharacterInputController {
         private CharacterInputActions _input;
         private bool _disposed;

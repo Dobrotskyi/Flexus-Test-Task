@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _Scripts.Character.Abstracts {
+namespace _Scripts.Input.Abstracts {
     public interface ICharacterInputController : IDisposable {
         public ICharacterInput Input { get; }
 

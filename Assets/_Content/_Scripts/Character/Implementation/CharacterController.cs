@@ -1,5 +1,6 @@
 ﻿using System;
 using _Scripts.Character.Abstracts;
+using _Scripts.Input.Abstracts;
 using UnityEngine;
 using Zenject;
 using Controller = UnityEngine.CharacterController;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Scripts.Character.Abstracts {
+namespace _Scripts.Input.Abstracts {
     public interface ICharacterInput {
         public bool IsSprinting { get; }
         public Vector2 Move { get; }

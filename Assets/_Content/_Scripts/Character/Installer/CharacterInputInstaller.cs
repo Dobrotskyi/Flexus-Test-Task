@@ -1,5 +1,5 @@
-﻿using _Scripts.Character.Abstracts;
-using _Scripts.Character.Implementation;
+﻿using _Scripts.Input.Abstracts;
+using _Scripts.Input.Implementation;
 using UnityEngine;
 using Zenject;
 
