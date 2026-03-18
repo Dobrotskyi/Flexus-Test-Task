@@ -10,12 +10,12 @@ namespace _Scripts.Character.StateMachine.States.Implementation {
 
         public void Enter() {
             Player.VehicleInput.Enable();
-            _cmCamera.gameObject.SetActive(true);
+            _cmCamera?.gameObject.SetActive(true);
         }
 
         public void Exit() {
             Player.VehicleInput.Disable();
-            _cmCamera.gameObject.SetActive(false);
+            _cmCamera?.gameObject.SetActive(false);
         }
     }
 }
