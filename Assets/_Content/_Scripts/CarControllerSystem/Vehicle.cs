@@ -9,7 +9,10 @@ namespace _Scripts.CarControllerSystem {
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private List<Wheel> _wheels;
         [SerializeField] private float _acceleration = 10;
-        [SerializeField] private float _maxSpeed = 100f;
+
+        [SerializeField, Tooltip("Meters per second")]
+        private float _maxSpeed = 100f;
+
         [SerializeField] private float _breakForce = 20f;
         [SerializeField] private float _maxSteerAngle = 35f;
         [SerializeField] private float _steerSensitivity = 1f;

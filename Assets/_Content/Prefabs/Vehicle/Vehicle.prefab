@@ -578,7 +578,7 @@ MonoBehaviour:
   - {fileID: 5485817087467548537}
   - {fileID: 6042741685534696813}
   _acceleration: 400
-  _maxSpeed: 70
+  _maxSpeed: 28
   _breakForce: 4000
   _maxSteerAngle: 35
   _steerSensitivity: 1
