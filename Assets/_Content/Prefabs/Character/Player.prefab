@@ -1048,15 +1048,10 @@ MonoBehaviour:
   _characteristics:
     MaxSpeed: 10
     MaxSprintSpeed: 20
-    CameraSensitivity: 50
-    BottomCameraAngle: -30
-    TopCameraAngle: 70
+    RotationSmoothTime: 10
   _controller: {fileID: 512885491193714422}
-  _cameraTarget: {fileID: 8533924272117720766}
   _cameraController:
     _cameraSensitivity: 50
-    _cinemachineTargetYaw: 0
-    _cinemachineTargetPitch: 0
     _bottomCameraAngle: -30
     _topCameraAngle: 70
     <CameraTarget>k__BackingField: {fileID: 8533924272117720766}

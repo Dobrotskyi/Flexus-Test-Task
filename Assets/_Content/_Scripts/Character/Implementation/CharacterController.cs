@@ -15,6 +15,7 @@ namespace _Scripts.Character.Implementation {
         public struct Characteristics {
             public float MaxSpeed;
             public float MaxSprintSpeed;
+            public float RotationSmoothTime;
         }
 
         [SerializeField] private Characteristics _characteristics;
@@ -58,18 +59,14 @@ namespace _Scripts.Character.Implementation {
             Quaternion inputDirection = Quaternion.LookRotation(new Vector3(_input.Move.x, 0, _input.Move.y));
             Quaternion targetRotation = Quaternion.Euler(0, _cameraController.CameraTarget.rotation.eulerAngles.y, 0) *
                                         inputDirection;
+            targetRotation = Quaternion.Lerp(transform.rotation, targetRotation,
+                Time.deltaTime * _characteristics.RotationSmoothTime);
 
             transform.rotation = targetRotation;
         }
 
         private void HandleCameraMovement() => _cameraController.HandleCameraMovement(_input.Look);
 
-
-        private float ClampAngle(float angle, float min, float max) {
-            if (angle < -360f) angle += 360f;
-            if (angle > 360f) angle -= 360f;
-            return Mathf.Clamp(angle, min, max);
-        }
 
 #if UNITY_EDITOR
         private void OnValidate() {

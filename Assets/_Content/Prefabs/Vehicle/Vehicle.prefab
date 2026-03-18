@@ -484,6 +484,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _dampTime: 0.1
+  _fadeoutDampTime: 0.5
 --- !u!1 &8569886140497193504
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,8 +577,8 @@ MonoBehaviour:
   - {fileID: 7864642728399784968}
   - {fileID: 5485817087467548537}
   - {fileID: 6042741685534696813}
-  _acceleration: 250
-  _maxSpeed: 100
+  _acceleration: 400
+  _maxSpeed: 70
   _breakForce: 4000
   _maxSteerAngle: 35
   _steerSensitivity: 1
