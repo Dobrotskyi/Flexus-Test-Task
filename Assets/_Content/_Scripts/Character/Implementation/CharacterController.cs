@@ -7,7 +7,6 @@ using Zenject;
 using Controller = UnityEngine.CharacterController;
 
 namespace _Scripts.Character.Implementation {
-    [RequireComponent(typeof(Controller))]
     public class CharacterController : MonoBehaviour, ICharacterAnimationParameters {
         private const float G = -9.81f;
 
@@ -19,26 +18,35 @@ namespace _Scripts.Character.Implementation {
         }
 
         [SerializeField] private Characteristics _characteristics;
-        [SerializeField] private Controller _controller;
         [SerializeField] private CameraController _cameraController;
+        private Controller _controller;
         private ICharacterInput _input;
+
 
         public bool IsSprinting => _input.IsSprinting;
         public float Speed => _controller.velocity.magnitude;
+        public ICharacterModel Model { private set; get; }
 
         [Inject]
-        public void Init(ICharacterInput input) {
+        public void SetInput(ICharacterInput input) {
             _input = input;
         }
 
+        public void SetModel(ICharacterModel model) {
+            Model = model;
+            Transform parentTransform = transform.Find("Model");
+            parentTransform ??= transform;
+            Model.Transform.SetParent(parentTransform);
+            Model.Transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+        }
+
         private void Start() {
+            _controller = GetComponent<Controller>();
             _cameraController.SetTargetYaw(_cameraController.CameraTarget.rotation.eulerAngles.y);
         }
 
         private void Update() {
             HandleMovement();
-            if (Application.isFocused && Cursor.lockState != CursorLockMode.Locked)
-                Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void LateUpdate() {

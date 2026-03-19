@@ -34,9 +34,5 @@ namespace _Scripts.Character.StateMachine {
         }
 
         public void TransitionToDefault() => TransitionTo(_defaultState);
-
-        private void Awake() {
-            TransitionTo(_defaultState);
-        }
     }
 }

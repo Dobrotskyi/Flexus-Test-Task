@@ -9,5 +9,10 @@ namespace _Scripts.Character.StateMachine {
             Container.QueueForInject(_stateMachine);
             Container.Bind<CharacterStateMachine>().FromInstance(_stateMachine);
         }
+
+        public override void Start() {
+            base.Start();
+            _stateMachine.TransitionToDefault();
+        }
     }
 }
