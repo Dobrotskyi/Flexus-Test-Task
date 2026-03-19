@@ -391,57 +391,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25887225}
   m_CullTransparentMesh: 1
---- !u!1 &202212960 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2878749213260231882, guid: 184632af56d999c4a930b49912d27453, type: 3}
-  m_PrefabInstance: {fileID: 7816355416615163394}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &202212964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202212960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkTransformExpanded: 0
-  AutoOwnerAuthorityTickOffset: 1
-  PositionInterpolationType: 0
-  RotationInterpolationType: 0
-  ScaleInterpolationType: 0
-  PositionLerpSmoothing: 1
-  PositionMaxInterpolationTime: 0.1
-  RotationLerpSmoothing: 0
-  RotationMaxInterpolationTime: 0.1
-  ScaleLerpSmoothing: 1
-  ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 1
-  TickSyncChildren: 0
-  UseUnreliableDeltas: 0
-  SyncPositionX: 0
-  SyncPositionY: 0
-  SyncPositionZ: 0
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  SwitchTransformSpaceWhenParented: 0
-  Interpolate: 0
-  SlerpPosition: 0
 --- !u!1 &210881654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,159 +1722,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56e1c49b0f897d24fabfa2451eb0c404, type: 3}
---- !u!1 &1133244732 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4450012623014972208, guid: a80ad67be354b7a44ba55ec86fa8ea4e, type: 3}
-  m_PrefabInstance: {fileID: 3693506743580280924}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1133244735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133244732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkTransformExpanded: 0
-  AutoOwnerAuthorityTickOffset: 1
-  PositionInterpolationType: 0
-  RotationInterpolationType: 0
-  ScaleInterpolationType: 0
-  PositionLerpSmoothing: 1
-  PositionMaxInterpolationTime: 0.1
-  RotationLerpSmoothing: 1
-  RotationMaxInterpolationTime: 0.1
-  ScaleLerpSmoothing: 1
-  ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 1
-  TickSyncChildren: 0
-  UseUnreliableDeltas: 0
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  SwitchTransformSpaceWhenParented: 0
-  Interpolate: 1
-  SlerpPosition: 0
---- !u!1 &1191037626 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3183033934384588323, guid: 184632af56d999c4a930b49912d27453, type: 3}
-  m_PrefabInstance: {fileID: 7816355416615163394}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1191037629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191037626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkTransformExpanded: 0
-  AutoOwnerAuthorityTickOffset: 1
-  PositionInterpolationType: 0
-  RotationInterpolationType: 0
-  ScaleInterpolationType: 0
-  PositionLerpSmoothing: 1
-  PositionMaxInterpolationTime: 0.1
-  RotationLerpSmoothing: 1
-  RotationMaxInterpolationTime: 0.1
-  ScaleLerpSmoothing: 1
-  ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 1
-  TickSyncChildren: 0
-  UseUnreliableDeltas: 0
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  SwitchTransformSpaceWhenParented: 0
-  Interpolate: 1
-  SlerpPosition: 0
---- !u!1 &1253843101 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 895314885944145372, guid: 184632af56d999c4a930b49912d27453, type: 3}
-  m_PrefabInstance: {fileID: 7816355416615163394}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1253843105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253843101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkTransformExpanded: 0
-  AutoOwnerAuthorityTickOffset: 1
-  PositionInterpolationType: 0
-  RotationInterpolationType: 0
-  ScaleInterpolationType: 0
-  PositionLerpSmoothing: 1
-  PositionMaxInterpolationTime: 0.1
-  RotationLerpSmoothing: 0
-  RotationMaxInterpolationTime: 0.1
-  ScaleLerpSmoothing: 1
-  ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 1
-  TickSyncChildren: 0
-  UseUnreliableDeltas: 0
-  SyncPositionX: 0
-  SyncPositionY: 0
-  SyncPositionZ: 0
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  SwitchTransformSpaceWhenParented: 0
-  Interpolate: 0
-  SlerpPosition: 0
 --- !u!1 &1326157690
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,57 +1801,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1526453077 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5219354915456128230, guid: 184632af56d999c4a930b49912d27453, type: 3}
-  m_PrefabInstance: {fileID: 7816355416615163394}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1526453081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526453077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkTransformExpanded: 0
-  AutoOwnerAuthorityTickOffset: 1
-  PositionInterpolationType: 0
-  RotationInterpolationType: 0
-  ScaleInterpolationType: 0
-  PositionLerpSmoothing: 1
-  PositionMaxInterpolationTime: 0.1
-  RotationLerpSmoothing: 0
-  RotationMaxInterpolationTime: 0.1
-  ScaleLerpSmoothing: 1
-  ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 1
-  TickSyncChildren: 0
-  UseUnreliableDeltas: 0
-  SyncPositionX: 0
-  SyncPositionY: 0
-  SyncPositionZ: 0
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  SwitchTransformSpaceWhenParented: 0
-  Interpolate: 0
-  SlerpPosition: 0
 --- !u!1 &1628789705
 GameObject:
   m_ObjectHideFlags: 0
@@ -2408,57 +2153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f22089a9663488ca2a4dbf6dc59433c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2000143453 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8348373182660556111, guid: 184632af56d999c4a930b49912d27453, type: 3}
-  m_PrefabInstance: {fileID: 7816355416615163394}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2000143457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000143453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkTransformExpanded: 0
-  AutoOwnerAuthorityTickOffset: 1
-  PositionInterpolationType: 0
-  RotationInterpolationType: 0
-  ScaleInterpolationType: 0
-  PositionLerpSmoothing: 1
-  PositionMaxInterpolationTime: 0.1
-  RotationLerpSmoothing: 0
-  RotationMaxInterpolationTime: 0.1
-  ScaleLerpSmoothing: 1
-  ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 1
-  TickSyncChildren: 0
-  UseUnreliableDeltas: 0
-  SyncPositionX: 0
-  SyncPositionY: 0
-  SyncPositionZ: 0
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  SwitchTransformSpaceWhenParented: 0
-  Interpolate: 0
-  SlerpPosition: 0
 --- !u!1 &2104405595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2611,14 +2305,6 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 55883287
       objectReference: {fileID: 0}
-    - target: {fileID: -1025103971490887400, guid: a80ad67be354b7a44ba55ec86fa8ea4e, type: 3}
-      propertyPath: SceneMigrationSynchronization
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1025103971490887400, guid: a80ad67be354b7a44ba55ec86fa8ea4e, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 3430698402
-      objectReference: {fileID: 0}
     - target: {fileID: 143982312291654160, guid: a80ad67be354b7a44ba55ec86fa8ea4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2663,29 +2349,14 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1488309698
       objectReference: {fileID: 0}
-    - target: {fileID: 760175483015701001, guid: a80ad67be354b7a44ba55ec86fa8ea4e, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 3430698402
-      objectReference: {fileID: 0}
-    - target: {fileID: 1312391521395175105, guid: a80ad67be354b7a44ba55ec86fa8ea4e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.81
-      objectReference: {fileID: 0}
     - target: {fileID: 4450012623014972208, guid: a80ad67be354b7a44ba55ec86fa8ea4e, type: 3}
       propertyPath: m_Name
       value: NetworkFullVehicle_Car2
       objectReference: {fileID: 0}
-    - target: {fileID: 7719956996854325371, guid: a80ad67be354b7a44ba55ec86fa8ea4e, type: 3}
-      propertyPath: UseRigidBodyForMotion
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4450012623014972208, guid: a80ad67be354b7a44ba55ec86fa8ea4e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1133244735}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80ad67be354b7a44ba55ec86fa8ea4e, type: 3}
 --- !u!4 &4974256072066302937
 Transform:
@@ -2868,18 +2539,6 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3577914217
       objectReference: {fileID: 0}
-    - target: {fileID: -2065624683877402104, guid: 184632af56d999c4a930b49912d27453, type: 3}
-      propertyPath: SceneMigrationSynchronization
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -2065624683877402104, guid: 184632af56d999c4a930b49912d27453, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 3204284831
-      objectReference: {fileID: 0}
-    - target: {fileID: 277951842303886290, guid: 184632af56d999c4a930b49912d27453, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.02
-      objectReference: {fileID: 0}
     - target: {fileID: 1158113117425334019, guid: 184632af56d999c4a930b49912d27453, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2920,10 +2579,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2438640085930227366, guid: 184632af56d999c4a930b49912d27453, type: 3}
-      propertyPath: UseRigidBodyForMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3183033934384588323, guid: 184632af56d999c4a930b49912d27453, type: 3}
       propertyPath: m_Name
       value: NetworkFullVehicle_Car1
@@ -2932,29 +2587,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1205989062
       objectReference: {fileID: 0}
-    - target: {fileID: 8949747303594893312, guid: 184632af56d999c4a930b49912d27453, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 3204284831
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3183033934384588323, guid: 184632af56d999c4a930b49912d27453, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1191037629}
-    - targetCorrespondingSourceObject: {fileID: 8348373182660556111, guid: 184632af56d999c4a930b49912d27453, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2000143457}
-    - targetCorrespondingSourceObject: {fileID: 2878749213260231882, guid: 184632af56d999c4a930b49912d27453, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 202212964}
-    - targetCorrespondingSourceObject: {fileID: 5219354915456128230, guid: 184632af56d999c4a930b49912d27453, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1526453081}
-    - targetCorrespondingSourceObject: {fileID: 895314885944145372, guid: 184632af56d999c4a930b49912d27453, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1253843105}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184632af56d999c4a930b49912d27453, type: 3}
 --- !u!4 &8232648469129019210
 Transform:
