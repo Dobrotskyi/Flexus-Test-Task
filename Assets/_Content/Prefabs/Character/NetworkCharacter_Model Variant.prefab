@@ -62,7 +62,48 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1450404268112059617, guid: 1ff90cdfd06d75549860388361617b19, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3849514013652045357}
+    - targetCorrespondingSourceObject: {fileID: 4866786729251283130, guid: 1ff90cdfd06d75549860388361617b19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7295321010526596442}
   m_SourcePrefab: {fileID: 100100000, guid: 1ff90cdfd06d75549860388361617b19, type: 3}
+--- !u!1 &1722777625766054778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4866786729251283130, guid: 1ff90cdfd06d75549860388361617b19, type: 3}
+  m_PrefabInstance: {fileID: 6080639745545563072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7295321010526596442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722777625766054778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkAnimatorExpanded: 0
+  AuthorityMode: 1
+  m_Animator: {fileID: 2151532536991686381}
+  TransitionStateInfoList: []
+  AnimatorParameterEntries:
+    ParameterEntries:
+    - name: Sprinting
+      NameHash: -126100601
+      Synchronize: 1
+      ParameterType: 4
+    - name: HorizontalSpeed
+      NameHash: -1118621987
+      Synchronize: 1
+      ParameterType: 1
+  AnimatorParametersExpanded: 0
+--- !u!95 &2151532536991686381 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5312280330626463021, guid: 1ff90cdfd06d75549860388361617b19, type: 3}
+  m_PrefabInstance: {fileID: 6080639745545563072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4630293459676886817 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1450404268112059617, guid: 1ff90cdfd06d75549860388361617b19, type: 3}
@@ -80,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3410720235
+  GlobalObjectIdHash: 1504931603
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1

@@ -8,16 +8,16 @@ namespace _Scripts.Network {
         [SerializeField] private CharacterController _controller;
 
         private void Start() {
-            NetworkManager.Singleton.OnClientConnectedCallback += SingletonOnOnClientConnectedCallback;
+            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
         }
 
         private void OnDestroy() {
             if (NetworkManager.Singleton == null)
                 return;
-            NetworkManager.Singleton.OnClientConnectedCallback -= SingletonOnOnClientConnectedCallback;
+            NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
         }
 
-        private void SingletonOnOnClientConnectedCallback(ulong id) {
+        private void OnClientConnected(ulong id) {
             NetworkObject playerObject = NetworkManager.Singleton.ConnectedClients[id].PlayerObject;
             if (playerObject.IsOwner && playerObject.TryGetComponent(out ICharacterModel model))
                 _controller.SetModel(model);

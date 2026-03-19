@@ -8,23 +8,15 @@ namespace _Scripts.Character.Implementation {
 
         private ICharacterAnimationParameters _parameters;
 
-        private void OnTransformParentChanged() {
-            CheckForAnimationParameters();
+        public void Init(ICharacterAnimationParameters parameters) {
+            _parameters = parameters;
+            CreateMappings();
+            enabled = true;
         }
 
         private void OnEnable() {
-            CheckForAnimationParameters();
-        }
-
-        private void CheckForAnimationParameters() {
-            _parameters = GetComponentInParent<ICharacterAnimationParameters>();
-            if (_parameters == null) {
+            if (_parameters == null)
                 enabled = false;
-                return;
-            }
-
-            enabled = true;
-            CreateMappings();
         }
 
         private void Update() {

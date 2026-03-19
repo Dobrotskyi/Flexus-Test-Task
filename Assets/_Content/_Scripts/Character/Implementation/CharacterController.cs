@@ -19,12 +19,11 @@ namespace _Scripts.Character.Implementation {
 
         [SerializeField] private Characteristics _characteristics;
         [SerializeField] private CameraController _cameraController;
-        private Controller _controller;
         private ICharacterInput _input;
 
-
+        private Controller Controller => Model?.Controller;
         public bool IsSprinting => _input.IsSprinting;
-        public float Speed => _controller.velocity.magnitude;
+        public float Speed => Controller.velocity.magnitude;
         public ICharacterModel Model { private set; get; }
 
         [Inject]
@@ -34,22 +33,23 @@ namespace _Scripts.Character.Implementation {
 
         public void SetModel(ICharacterModel model) {
             Model = model;
-            Transform parentTransform = transform.Find("Model");
-            parentTransform ??= transform;
-            Model.Transform.SetParent(parentTransform);
-            Model.Transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            Model.Transform.SetPositionAndRotation(transform.position, transform.rotation);
+            Model.SetAnimationParameters(this);
         }
 
         private void Start() {
-            _controller = GetComponent<Controller>();
             _cameraController.SetTargetYaw(_cameraController.CameraTarget.rotation.eulerAngles.y);
         }
 
         private void Update() {
+            if (Model == null || Model.Transform == null)
+                return;
             HandleMovement();
         }
 
         private void LateUpdate() {
+            if (Model == null || Model.Transform == null)
+                return;
             HandleCameraMovement();
         }
 
@@ -60,27 +60,20 @@ namespace _Scripts.Character.Implementation {
             else
                 AlignRotation();
 
-            _controller.Move(transform.forward * (targetSpeed * Time.deltaTime) + new Vector3(0, G, 0));
+            Controller.Move(Model.Transform.forward * (targetSpeed * Time.deltaTime) + new Vector3(0, G, 0));
+            _cameraController.CameraTarget.position = Model.CameraTarget.position;
         }
 
         private void AlignRotation() {
             Quaternion inputDirection = Quaternion.LookRotation(new Vector3(_input.Move.x, 0, _input.Move.y));
             Quaternion targetRotation = Quaternion.Euler(0, _cameraController.CameraTarget.rotation.eulerAngles.y, 0) *
                                         inputDirection;
-            targetRotation = Quaternion.Lerp(transform.rotation, targetRotation,
+            targetRotation = Quaternion.Lerp(Model.Transform.rotation, targetRotation,
                 Time.deltaTime * _characteristics.RotationSmoothTime);
 
-            transform.rotation = targetRotation;
+            Model.Transform.rotation = targetRotation;
         }
 
         private void HandleCameraMovement() => _cameraController.HandleCameraMovement(_input.Look);
-
-
-#if UNITY_EDITOR
-        private void OnValidate() {
-            if (_controller == null)
-                _controller = GetComponent<Controller>();
-        }
-#endif
     }
 }
