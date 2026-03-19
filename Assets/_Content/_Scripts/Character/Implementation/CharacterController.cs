@@ -40,7 +40,7 @@ namespace _Scripts.Character.Implementation {
         public void SetModelActive(bool active) {
             if (Model == null)
                 return;
-            Model.gameObject.SetActive(active);
+            Model.SetActive(active);
         }
 
         public void SetPosition(Vector3 position) {
@@ -56,13 +56,13 @@ namespace _Scripts.Character.Implementation {
         }
 
         private void Update() {
-            if (Model == null || !Model.gameObject.activeSelf)
+            if (Model == null || !Model.IsActive)
                 return;
             HandleMovement();
         }
 
         private void LateUpdate() {
-            if (Model == null || !Model.gameObject.activeSelf)
+            if (Model == null || !Model.IsActive)
                 return;
             HandleCameraMovement();
         }

@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 2405814739294762030}
+  _renderer: {fileID: 6945705743132363344}
   <CameraTarget>k__BackingField: {fileID: 3918722415861937914}
   <Controller>k__BackingField: {fileID: 3036427157925023776}
 --- !u!114 &2406035285361824898
