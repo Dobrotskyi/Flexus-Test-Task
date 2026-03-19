@@ -73,7 +73,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4694636791283030573}
   - component: {fileID: 9062878959848004354}
-  - component: {fileID: 3240777361704907174}
   - component: {fileID: 7376221220244283480}
   m_Layer: 0
   m_Name: Player
@@ -120,22 +119,6 @@ MonoBehaviour:
     _bottomCameraAngle: -30
     _topCameraAngle: 70
     <CameraTarget>k__BackingField: {fileID: 8533924272117720766}
---- !u!114 &3240777361704907174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6964343740137034015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b67ab207484f0395478be3792850f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _finder:
-    _maxDistance: 2
-    _checkingInterval: 0.1
-    _origin: {fileID: 4694636791283030573}
 --- !u!114 &7376221220244283480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,8 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f3e9b722d84dc4995d88e26fa9d552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _model:
-    _underlyingValue: {fileID: 2635512776746327856}
+  _model: {fileID: 2635512776746327856}
   _controller: {fileID: 9062878959848004354}
 --- !u!1001 &5691425419393442345
 PrefabInstance:

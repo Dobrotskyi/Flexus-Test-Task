@@ -22,12 +22,12 @@ namespace _Scripts.Character.InteractionSystem.Interactions {
         public void Perform(CharacterStateMachine player) {
             player.TransitionTo(_inVehicle);
             _vehicle.SetHandbrakeInput(false);
-            player.PlayerGO.SetActive(false);
+            player.Controller.SetModelActive(false);
         }
 
         public Result Stop(CharacterStateMachine player) {
-            player.PlayerGO.transform.position = _leavingPosition.position;
-            player.PlayerGO.SetActive(true);
+            player.Controller.SetPosition(_leavingPosition.position);
+            player.Controller.SetModelActive(true);
             player.TransitionToDefault();
             _finished.OnNext(Unit.Default);
             _vehicle.SetHandbrakeInput(true);

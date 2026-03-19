@@ -37,18 +37,32 @@ namespace _Scripts.Character.Implementation {
             Model.SetAnimationParameters(this);
         }
 
+        public void SetModelActive(bool active) {
+            if (Model == null)
+                return;
+            Model.gameObject.SetActive(active);
+        }
+
+        public void SetPosition(Vector3 position) {
+            bool controllerState = Controller.enabled;
+            if (controllerState)
+                Controller.enabled = false;
+            Controller.transform.position = position;
+            Controller.enabled = controllerState;
+        }
+
         private void Start() {
             _cameraController.SetTargetYaw(_cameraController.CameraTarget.rotation.eulerAngles.y);
         }
 
         private void Update() {
-            if (Model == null || Model.Transform == null)
+            if (Model == null || !Model.gameObject.activeSelf)
                 return;
             HandleMovement();
         }
 
         private void LateUpdate() {
-            if (Model == null || Model.Transform == null)
+            if (Model == null || !Model.gameObject.activeSelf)
                 return;
             HandleCameraMovement();
         }

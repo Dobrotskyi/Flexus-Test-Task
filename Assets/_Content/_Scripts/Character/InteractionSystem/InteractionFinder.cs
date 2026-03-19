@@ -32,6 +32,8 @@ namespace _Scripts.Character.InteractionSystem {
         }
 
         public void StartSearching(MonoBehaviour coroutineRunner) {
+            if (_running)
+                return;
             _interactionMask ??= LayerMask.GetMask(LAYER_NAME);
             coroutineRunner.StartCoroutine(CheckInteractable());
         }

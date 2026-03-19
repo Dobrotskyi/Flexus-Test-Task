@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 3521467163654207326}
   - component: {fileID: 3036427157925023776}
   - component: {fileID: 7669412099694853401}
+  - component: {fileID: 2406035285361824898}
   m_Layer: 0
   m_Name: Character_Model
   m_TagString: Untagged
@@ -171,6 +172,22 @@ MonoBehaviour:
   _animator: {fileID: 2405814739294762030}
   <CameraTarget>k__BackingField: {fileID: 3918722415861937914}
   <Controller>k__BackingField: {fileID: 3036427157925023776}
+--- !u!114 &2406035285361824898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450404268112059617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b67ab207484f0395478be3792850f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _finder:
+    _maxDistance: 2
+    _checkingInterval: 0.1
+    _origin: {fileID: 3521467163654207326}
 --- !u!1 &1471536626183466995
 GameObject:
   m_ObjectHideFlags: 0

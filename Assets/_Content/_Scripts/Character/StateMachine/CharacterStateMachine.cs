@@ -3,12 +3,13 @@ using _Scripts.Character.StateMachine.States;
 using _Scripts.Input.Abstracts;
 using UnityEngine;
 using Zenject;
+using CharacterController = _Scripts.Character.Implementation.CharacterController;
 
 namespace _Scripts.Character.StateMachine {
     public class CharacterStateMachine : MonoBehaviour {
         [SerializeReference, SubclassSelector] private State _defaultState;
 
-        [field: SerializeField] public GameObject PlayerGO { private set; get; }
+        [field: SerializeField] public CharacterController Controller { private set; get; }
         public ICharacterInputController CharacterInput { private set; get; }
         public IVehicleInputController VehicleInput { private set; get; }
         public IInteractionTriggerController InteractionInput { private set; get; }

@@ -920,7 +920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultState:
     rid: 1897352869707251956
-  <PlayerGO>k__BackingField: {fileID: 2092101038}
+  <Controller>k__BackingField: {fileID: 2092101040}
   references:
     version: 2
     RefIds:
@@ -1168,11 +1168,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f22089a9663488ca2a4dbf6dc59433c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2092101038 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6964343740137034015, guid: 1650ad253a83c4d4cbb2e9b9cc6d474f, type: 3}
+--- !u!114 &2092101040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9062878959848004354, guid: 1650ad253a83c4d4cbb2e9b9cc6d474f, type: 3}
   m_PrefabInstance: {fileID: 5284270905629135924}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e6c544608d4af09530eb015c5d9aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2104405595
 GameObject:
   m_ObjectHideFlags: 0
