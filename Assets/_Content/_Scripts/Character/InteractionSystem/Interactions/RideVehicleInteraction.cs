@@ -4,7 +4,6 @@ using _Scripts.Character.StateMachine;
 using _Scripts.Character.StateMachine.States.Implementation;
 using R3;
 using Unity.Netcode;
-using Unity.Netcode.Components;
 using UnityEngine;
 
 namespace _Scripts.Character.InteractionSystem.Interactions {
@@ -13,7 +12,6 @@ namespace _Scripts.Character.InteractionSystem.Interactions {
         [SerializeField] private InVehicle _inVehicle;
         [SerializeField] private Vehicle _vehicle;
         [SerializeField] private Transform _leavingPosition;
-        private NetworkTransform _networkTransform;
 
         public Observable<Unit> Finished => _finished;
         public IInteractionInfo Info => this;
@@ -26,8 +24,6 @@ namespace _Scripts.Character.InteractionSystem.Interactions {
             player.TransitionTo(_inVehicle);
             _vehicle.SetHandbrakeInput(false);
             player.Controller.SetModelActive(false);
-            if (_networkTransform == null)
-                return;
 
             NetworkObject networkObject = player.Controller.Model.GetComponent<NetworkObject>();
             if (networkObject == null)
@@ -43,10 +39,6 @@ namespace _Scripts.Character.InteractionSystem.Interactions {
             _vehicle.SetHandbrakeInput(true);
 
             return Result.Success;
-        }
-
-        private void OnEnable() {
-            _networkTransform = transform.GetComponentInParent<NetworkTransform>();
         }
 
         [Rpc(SendTo.Server)]

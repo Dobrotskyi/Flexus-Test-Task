@@ -1,14 +1,24 @@
-﻿using Unity.Netcode;
+﻿using _Scripts.Character.Implementation;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace _Scripts.Network {
     public class NetworkVisibilitySync : NetworkBehaviour {
-        [SerializeField] private Renderer _renderer;
+        [SerializeField] private CharacterModel _model;
+        private bool _lastValue = false;
 
-        private void OnEnable() => SetVisibilityRpc(true);
-        private void OnDisable() => SetVisibilityRpc(false);
+        private void Update() {
+            if (!IsOwner)
+                return;
+            if (_lastValue != _model.IsActive) {
+                SetActiveRpc(_model.IsActive);
+                _lastValue = _model.IsActive;
+            }
+        }
 
-        [Rpc(SendTo.Everyone)]
-        private void SetVisibilityRpc(bool active) => _renderer.enabled = active;
+        [Rpc(SendTo.ClientsAndHost)]
+        private void SetActiveRpc(bool visible) {
+            _model.SetActive(visible);
+        }
     }
 }
