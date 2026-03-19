@@ -13,7 +13,7 @@ namespace _Scripts.CarControllerSystem {
         [SerializeField, Tooltip("Meters per second")]
         private float _maxSpeed = 100f;
 
-        [SerializeField] private float _breakForce = 20f;
+        [SerializeField] private float _brakeForce = 4000f;
         [SerializeField] private float _maxSteerAngle = 35f;
         [SerializeField] private float _steerSensitivity = 1f;
         [Range(0.1f, 1), SerializeField] private float _steerSnapping = 0.5f;
@@ -24,6 +24,7 @@ namespace _Scripts.CarControllerSystem {
 
         public float MaxSpeed => _maxSpeed;
         public float CurrentSpeed { private set; get; }
+        public bool Active { set; get; }
 
         [Inject]
         public void Init(IVehicleInput input) {
@@ -53,9 +54,20 @@ namespace _Scripts.CarControllerSystem {
         }
 
         private void WheelsLogic() {
+            if (!Active) {
+                foreach (var wheel in _wheels) {
+                    if (wheel.CanBrake)
+                        wheel.ApplyBrakeTorque(1 * _brakeForce);
+                    if (wheel.CanPower)
+                        wheel.ApplyMotorTorque(0);
+                }
+
+                return;
+            }
+
             foreach (var wheel in _wheels) {
                 if (wheel.CanBrake)
-                    wheel.ApplyBrakeTorque((_onHandbrake ? 1 : _input.Brake.Value) * _breakForce);
+                    wheel.ApplyBrakeTorque((_onHandbrake ? 1 : _input.Brake.Value) * _brakeForce);
                 if (wheel.CanPower && !ReachedMaxSpeed())
                     wheel.ApplyMotorTorque(_input.TorqueDirection * _acceleration);
                 if (wheel.CanSteer)

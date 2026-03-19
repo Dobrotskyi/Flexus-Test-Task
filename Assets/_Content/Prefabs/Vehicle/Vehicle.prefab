@@ -257,7 +257,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -388,7 +388,7 @@ Transform:
   m_GameObject: {fileID: 5811642666039765455}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.78, y: 0, z: 0.82}
+  m_LocalPosition: {x: -2.007, y: 0.2, z: 0.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -579,7 +579,7 @@ MonoBehaviour:
   - {fileID: 6042741685534696813}
   _acceleration: 400
   _maxSpeed: 28
-  _breakForce: 4000
+  _brakeForce: 4000
   _maxSteerAngle: 35
   _steerSensitivity: 1
   _steerSnapping: 0.5
@@ -931,6 +931,10 @@ PrefabInstance:
       propertyPath: _leavingPosition
       value: 
       objectReference: {fileID: 2541660432750630117}
+    - target: {fileID: 4735382608747149615, guid: 172c4aa882adc1b4fb19e63254834eb6, type: 3}
+      propertyPath: _inVehicle._vehicle
+      value: 
+      objectReference: {fileID: 7221051928993559406}
     - target: {fileID: 8032660688238183827, guid: 172c4aa882adc1b4fb19e63254834eb6, type: 3}
       propertyPath: m_LocalScale.z
       value: 3.9155
