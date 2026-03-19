@@ -3,7 +3,7 @@ using UnityEngine;
 using Controller = UnityEngine.CharacterController;
 
 namespace _Scripts.Character.Implementation {
-    public class CharacterModel : MonoBehaviour, ICharacterModel {
+    public class CharacterModel : MonoBehaviour {
         [SerializeField] private CharacterAnimator _animator;
 
         public Transform Transform => transform != null ? transform : null;

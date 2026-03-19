@@ -24,14 +24,14 @@ namespace _Scripts.Character.Implementation {
         private Controller Controller => Model?.Controller;
         public bool IsSprinting => _input.IsSprinting;
         public float Speed => Controller.velocity.magnitude;
-        public ICharacterModel Model { private set; get; }
+        public CharacterModel Model { private set; get; }
 
         [Inject]
         public void SetInput(ICharacterInput input) {
             _input = input;
         }
 
-        public void SetModel(ICharacterModel model) {
+        public void SetModel(CharacterModel model) {
             Model = model;
             Model.Transform.SetPositionAndRotation(transform.position, transform.rotation);
             Model.SetAnimationParameters(this);

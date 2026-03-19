@@ -1,4 +1,4 @@
-﻿using _Scripts.Character.Abstracts;
+﻿using _Scripts.Character.Implementation;
 using Unity.Netcode;
 using UnityEngine;
 using CharacterController = _Scripts.Character.Implementation.CharacterController;
@@ -19,7 +19,7 @@ namespace _Scripts.Network {
 
         private void OnClientConnected(ulong id) {
             NetworkObject playerObject = NetworkManager.Singleton.ConnectedClients[id].PlayerObject;
-            if (playerObject.IsOwner && playerObject.TryGetComponent(out ICharacterModel model))
+            if (playerObject.IsOwner && playerObject.TryGetComponent(out CharacterModel model))
                 _controller.SetModel(model);
         }
     }
